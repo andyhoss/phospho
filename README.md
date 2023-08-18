@@ -127,6 +127,11 @@ sites <- d1 %>%
                      values_from = value)
 
 ```
+Step 5: 
+Check your sites file, this should have "id" as the first column and 30 columns with sample names:
+```
+head(sites)
+```
 Step 5: analyze the sites data:
 ```
 ppe <- normalizeData(sites=sites)
