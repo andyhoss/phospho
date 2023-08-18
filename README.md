@@ -16,7 +16,7 @@ path_to_raw_data='path/to/excel/here/'
 ```
 Step 4: download the "final_seq.csv" file from this repo and load this file:
 ```
-final_seqs=data.table::fread('path/to/final_seq.csv')
+final_seq=data.table::fread('path/to/final_seq.csv')
 ```
 Step 5: prepare the "sites" data:
 ```
