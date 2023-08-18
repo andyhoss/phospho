@@ -127,14 +127,15 @@ sites <- d1 %>%
                      values_from = value)
 
 ```
-Step 5: 
+Step 6: 
 Check your sites file, this should have "id" as the first column and 30 columns with sample names:
 ```
 head(sites)
 ```
-Step 5: analyze the sites data:
+Step 7: analyze the sites data:
 ```
 ppe <- normalizeData(sites=sites)
+library(ggplot2) # this needs to be loaded directly for now
 QCplots(ppe)
 distPlots(ppe)
 
