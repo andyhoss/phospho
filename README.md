@@ -20,6 +20,7 @@ final_seq=data.table::fread('path/to/final_seq.csv')
 ```
 Step 5: prepare the "sites" data:
 ```
+swissprot_selected=FALSE
 d1 <- data.table::fread(path_to_raw_data) %>% 
   dplyr::filter(EG.ProteinPTMLocations != '') %>%
   dplyr::filter(EG.PTMAssayProbability>=0.75) %>% 
