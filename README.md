@@ -14,7 +14,11 @@ Step 3: load the R phospho library and set the path to your raw data file:
 library(phospho)
 path_to_raw_data='path/to/excel/here/'
 ```
-Step 4: prepare the "sites" data:
+Step 4: download the "final_seqs.csv" file from this repo and load this file:
+```
+final_seqs=data.table::fread('path/to/final_seqs.csv')
+```
+Step 5: prepare the "sites" data:
 ```
 d1 <- data.table::fread(path_to_raw_data) %>% 
   dplyr::filter(EG.ProteinPTMLocations != '') %>%
