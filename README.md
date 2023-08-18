@@ -9,10 +9,13 @@ Step 2: install phospho package:
 ```
 install_github('andyhoss/phospho')
 ```
-Step 3: prepare raw data using R phospho library:
+Step 3: load the R phospho library and set the path to your raw data file:
 ```
+library(phospho)
 path_to_raw_data='path/to/excel/here/'
-
+```
+Step 4: prepare the "sites" data:
+```
 d1 <- data.table::fread(path_to_raw_data) %>% 
   dplyr::filter(EG.ProteinPTMLocations != '') %>%
   dplyr::filter(EG.PTMAssayProbability>=0.75) %>% 
@@ -119,13 +122,9 @@ sites <- d1 %>%
                      names_from=sample,
                      values_from = value)
 
-save(d1, ids, fragments, sites, file = '20230701_phosphoproteomics/data3.RData')
-
-#################################
-
-load(file = '20230701_phosphoproteomics/data3.RData')
-source('Scripts/20230816_phospho_functions.R')
-
+```
+Step 5: analyze the sites data:
+```
 ppe <- normalizeData(sites=sites)
 QCplots(ppe)
 distPlots(ppe)
@@ -140,4 +139,4 @@ motifAS_WT <- getMotif(fitAS_WT, data=final_sites, 'grpsAS_DMSO - grpsWT_DMSO', 
 motifAS <- getMotif(fitAS, data=final_sites, 'grpsAS_1NA - grpsAS_DMSO', LFC=0)
 motifMLN <- getMotif(fitMLN, data=final_sites, 'grpsWT_MLN - grpsWT_DMSO')
 motifMK <- getMotif(fitMK, data=final_sites, 'grpsWT_MK - grpsWT_DMSO')
-
+```
