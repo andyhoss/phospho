@@ -81,7 +81,7 @@ fixed_fragments <- fixWindows(fragments=initial_fragments)
 
 #dealing with pesky multi-entries
 #identify accessions+ptms
-##USE THIS TO FILTER FRAGS3 for individual PTM + windows
+##use this to fix FIXED_FRAGMENTS for individual PTM + windows
 multi_ids <- fixed_fragments %>% 
   dplyr::group_by(PG.ProteinAccessions, EG.ProteinPTMLocations, site_count) %>% 
   dplyr::summarize(n_ptm=length(unique(ptm))) %>% 
