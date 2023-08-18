@@ -7,6 +7,7 @@
 #' @param aggregate A logical value indicating whether to aggregate the results (default is TRUE).
 #' @param scaled A logical value indicating whether to use scaled values (default is TRUE).
 #' @return A ggplot object representing the histogram plot.
+#' @import ggplot2, tibble, tidyr, dplyr
 #' @export
 distPlots <- function(ppe, aggregate=TRUE, scaled=TRUE){
   if(scaled==TRUE){
